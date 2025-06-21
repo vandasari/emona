@@ -15,12 +15,6 @@ main_page = st.Page(
     default=True,
 )
 
-report_page = st.Page(
-    page="pages/reports.py",
-    title="Reports",
-    icon=":material/analytics:",
-)
-
 statistic_page = st.Page(
     page="pages/analysis/statistics.py",
     title="Statistics",

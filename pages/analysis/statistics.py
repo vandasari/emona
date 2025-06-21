@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import streamviz
 import plotly.express as px
 
 
@@ -36,11 +35,6 @@ else:
 
 tot_power_consumption_per_zone = power_consumption_per_zone.sum()
 
-# st.write(tot_power_consumption_per_zone)
-
-# tot_power_consumption_zone1 = df_selected_day["PowerConsumption_Zone1"].sum()
-# tot_power_consumption_zone2 = df_selected_day["PowerConsumption_Zone2"].sum()
-# tot_power_consumption_zone3 = df_selected_day["PowerConsumption_Zone3"].sum()
 
 time_day = df_selected_day["Datetime"]
 # zone1_power_consumption = df_selected_day["PowerConsumption_Zone1"]
@@ -63,38 +57,17 @@ with col3:
         value=f"{tot_power_consumption_per_zone/1000:.2f} kW",
         delta=-2.5,
     )
-    # streamviz.gauge(
-    #     tot_power_consumption_per_zone / 1000,
-    #     gTitle="Total",
-    #     gSize="MED",
-    #     gMode="gauge+number",
-    #     grLow=3333,
-    #     grMid=6666,
-    #     arTop=10000,
-    #     gcLow="#1B8720",
-    #     gcMid="#FF9400",
-    #     gcHigh="#FF1708",
-    # )
 
 with col4:
     bar_chart_zone1 = px.bar(x=time_day, y=power_consumption_per_zone, height=250)
     st.plotly_chart(bar_chart_zone1)
 
-# st.subheader(f"Konsumsi Listrik dalam kW untuk periode {title}")
-
-# bar_chart_zone1 = px.bar(x=time_day, y=zone1_power_consumption)
-# st.plotly_chart(bar_chart_zone1)
-
-# st.subheader(f"Estimasi Biaya Konsumsi Listrik untuk periode {title}")
 
 col5, col6 = st.columns([2, 3], border=True)
 
 with col5:
     st.metric(label="Total Biaya", value=f"Rp {cost_per_zone:.2f}")
 
-# with col6:
-#     bar_chart_cost_zone1 = px.bar(x=time_day, y=cost_zone1, height=200)
-#     st.plotly_chart(bar_chart_cost_zone1)
 
 st.subheader(
     f"Pengaruh Suhu, Kelembaban, dan Kecepatan Angin untuk {selected_zone} periode {title}"
