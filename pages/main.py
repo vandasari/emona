@@ -4,6 +4,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import random
 import datetime
+import pytz
 from datetime import timedelta
 from streamlit_extras.metric_cards import style_metric_cards
 
@@ -59,7 +60,8 @@ st.markdown(
     "<style>div.block-container(padding-top:2rem;)</style>", unsafe_allow_html=True
 )
 
-current = datetime.datetime.now()
+jakarta_tz = pytz.timezone("Asia/Jakarta")
+current = datetime.datetime.now(jakarta_tz)
 current_date = current.strftime("%d-%m-%Y")
 current_day = current.strftime("%A")
 current_time = current.strftime("%H:%M:%S")
