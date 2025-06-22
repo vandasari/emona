@@ -21,9 +21,9 @@ statistic_page = st.Page(
     icon="📈",
 )
 
-prediction_page = st.Page(
-    page="pages/analysis/predictions.py",
-    title="Machine Learning",
+report_page = st.Page(
+    page="pages/analysis/reports.py",
+    title="Reports",
     icon="📊",
 )
 
@@ -42,7 +42,7 @@ compressor_page = st.Page(
 group_pages = {
     "🎛️ PT Central Panganpertiwi": [main_page],
     "🖥️ Live Tracking": [feedmill_motor_page, compressor_page],
-    "📝 Reports & Analysis": [statistic_page, prediction_page],
+    "📝 Reports & Analysis": [statistic_page, report_page],
 }
 
 pg = st.navigation(group_pages)
